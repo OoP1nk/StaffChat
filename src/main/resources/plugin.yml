@@ -1,0 +1,5 @@
+name: StaffChat
+version: '${project.version}'
+main: me.oop1nk.staffchat.StaffChat
+description: A multi-proxy staffchat plugin for WaterdogPE
+author: OoP1nk

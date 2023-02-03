@@ -1,0 +1,52 @@
+#    ______   __               ______   ______   ______  __                  __
+#   /      \ /  |             /      \ /      \ /      \/  |                /  |
+#  /$$$$$$  _$$ |_    ______ /$$$$$$  /$$$$$$  /$$$$$$  $$ |____   ______  _$$ |_
+#  $$ \__$$/ $$   |  /      \$$ |_ $$/$$ |_ $$/$$ |  $$/$$      \ /      \/ $$   |
+#  $$      $$$$$$/   $$$$$$  $$   |   $$   |   $$ |     $$$$$$$  |$$$$$$  $$$$$$/
+#  $$$$$$  |$$ | __ /    $$ $$$$/    $$$$/    $$ |   __$$ |  $$ |/    $$ | $$ | __
+#  /  \__$$ |$$ |/  /$$$$$$$ $$ |     $$ |     $$ \__/  $$ |  $$ /$$$$$$$ | $$ |/  |
+#  $$    $$/ $$  $$/$$    $$ $$ |     $$ |     $$    $$/$$ |  $$ $$    $$ | $$  $$/
+#  $$$$$$/   $$$$/  $$$$$$$/$$/      $$/       $$$$$$/ $$/   $$/ $$$$$$$/   $$$$/
+
+# -----------------------------------------------
+# Version information for internal use.
+# -----------------------------------------------
+version: 1
+
+# -----------------------------------------------
+# The region of the proxy.
+# -----------------------------------------------
+region: Europe
+
+# -----------------------------------------------
+# The format to follow when a new message is sent in staff-chat.
+# -----------------------------------------------
+# Different placeholders which can be used:
+# ("$player$") -> The player sending the message.
+# ("$server$") -> The server the message was sent from.
+# ("$message$") -> The message that has been sent.
+# ("$region$") -> GeoLocated region at which the message was queued.
+message-format: '§8[§e$region$§8|§b$server$§8]§r §e$player$ §l§o§8»§r §e$message$'
+
+messages:
+  no-permission: '§cYou do not have permission to run this command.'
+  channel-on: '§bYour default chat room is now§r: §eStaff Chat'
+  channel-off: '§bYour default chat room is now§r: §eServer'
+
+# -----------------------------------------------
+# How to queue new messages being sent.
+# -----------------------------------------------
+# ("local") -> Used when there is only one proxy.
+# ("multi") -> Used with multi proxy instances.
+#   > Uses redis as a queue
+#   > All instances must be linked to the same redis store
+provider: local
+
+# -----------------------------------------------
+# Redis connection credentials
+# -----------------------------------------------
+# ("password") -> Leave blank if no password needed.
+redis:
+  host: 127.0.0.1
+  port: 6379
+  password: ''
