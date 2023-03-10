@@ -1,22 +1,21 @@
 package me.oop1nk.staffchat.utils;
 
-import dev.waterdog.waterdogpe.ProxyServer;
 import me.oop1nk.staffchat.StaffChat;
-
-import javax.annotation.Nullable;
 
 public class Message {
 
     private final String playerName;
     private final String serverName;
-    private final String message;
+    private final String content;
+    private final FormatType formatType;
     private final String region;
 
-    public Message(String playerName, String serverName, String message) {
+    public Message(String playerName, String serverName, String content, FormatType formatType) {
         this.playerName = playerName;
         this.serverName = serverName;
-        this.message = message;
-        this.region = StaffChat.getInstance().getConfig().getString(ConfigKeys.KEY_REGION);
+        this.content = content;
+        this.formatType = formatType;
+        this.region = StaffChat.getInstance().getConfig().getString(ConfigKeys.REGION);
     }
 
     public String getPlayerName() {
@@ -27,11 +26,11 @@ public class Message {
         return serverName;
     }
 
-    public String getMessage() {
-        return message;
+    public String getContent() {
+        return content;
     }
 
-    public String getRegion() {
-        return region;
-    }
+    public FormatType getFormatType() {return formatType;}
+
+    public String getRegion() {return region;}
 }

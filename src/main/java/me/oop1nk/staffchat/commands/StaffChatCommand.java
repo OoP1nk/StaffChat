@@ -6,6 +6,7 @@ import dev.waterdog.waterdogpe.command.CommandSettings;
 import dev.waterdog.waterdogpe.player.ProxiedPlayer;
 import me.oop1nk.staffchat.StaffChat;
 import me.oop1nk.staffchat.utils.ConfigKeys;
+import me.oop1nk.staffchat.utils.FormatType;
 import me.oop1nk.staffchat.utils.Message;
 
 public class StaffChatCommand extends Command {
@@ -14,7 +15,7 @@ public class StaffChatCommand extends Command {
                 .setDescription("Send a message to all online staff members")
                 .setUsageMessage("/s <message>")
                 .setPermission("staffchat.use")
-                .setPermissionMessage(StaffChat.getInstance().getConfig().getString(ConfigKeys.KEY_MESSAGE_NO_PERMISSION))
+                .setPermissionMessage(StaffChat.getInstance().getConfig().getString(ConfigKeys.MESSAGE_NO_PERMISSION))
                 .build());
     }
 
@@ -29,8 +30,8 @@ public class StaffChatCommand extends Command {
             return true;
         }
         ProxiedPlayer player = (ProxiedPlayer) sender;
-        Message message = new Message(player.getName(), player.getServerInfo().getServerName(), String.join(" ", args));
-        StaffChat.getInstance().sendMessage(message);
+        Message message = new Message(player.getName(), player.getServerInfo().getServerName(), String.join(" ", args), FormatType.DEFAULT);
+        StaffChat.getInstance().getChatManager().sendMessage(message);
         return true;
     }
 }

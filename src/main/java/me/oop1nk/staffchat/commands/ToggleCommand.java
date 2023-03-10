@@ -13,7 +13,7 @@ public class ToggleCommand extends Command {
                 .setPermission("staffchat.use")
                 .setDescription("Toggles Staff Chat channel on/off")
                 .setAliases(new String[] { "sc" })
-                .setPermissionMessage(StaffChat.getInstance().getConfig().getString(ConfigKeys.KEY_MESSAGE_NO_PERMISSION))
+                .setPermissionMessage(StaffChat.getInstance().getConfig().getString(ConfigKeys.MESSAGE_NO_PERMISSION))
                 .setUsageMessage("/sc")
                 .build());
     }
@@ -28,8 +28,8 @@ public class ToggleCommand extends Command {
         boolean isChatToggled = StaffChat.getInstance().isToggled(player);
         StaffChat.getInstance().toggle(player, !isChatToggled);
         sender.sendMessage(isChatToggled
-                ? StaffChat.getInstance().getConfig().getString(ConfigKeys.KEY_MESSAGE_CHANNEL_OFF)
-                : StaffChat.getInstance().getConfig().getString(ConfigKeys.KEY_MESSAGE_CHANNEL_ON)
+                ? StaffChat.getInstance().getConfig().getString(ConfigKeys.MESSAGE_CHANNEL_OFF)
+                : StaffChat.getInstance().getConfig().getString(ConfigKeys.MESSAGE_CHANNEL_ON)
         );
         return true;
     }

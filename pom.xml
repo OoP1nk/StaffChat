@@ -18,6 +18,7 @@
     </properties>
 
     <build>
+        <finalName>StaffChat</finalName>
         <defaultGoal>clean package</defaultGoal>
         <plugins>
             <plugin>

@@ -11,7 +11,7 @@
 # -----------------------------------------------
 # Version information for internal use.
 # -----------------------------------------------
-version: 1
+version: 2
 
 # -----------------------------------------------
 # The region of the proxy.
@@ -26,7 +26,9 @@ region: Europe
 # ("$server$") -> The server the message was sent from.
 # ("$message$") -> The message that has been sent.
 # ("$region$") -> GeoLocated region at which the message was queued.
-message-format: '§8[§e$region$§8|§b$server$§8]§r §e$player$ §l§o§8»§r §e$message$'
+staffchat-format:
+  notification: "§e[STAFF]§b $message$"
+  default: "§8[§e$region$§8|§b$server$§8]§r §e$player$ §l§o§8»§r §e$message$"
 
 messages:
   no-permission: '§cYou do not have permission to run this command.'
@@ -37,7 +39,7 @@ messages:
 # How to queue new messages being sent.
 # -----------------------------------------------
 # ("local") -> Used when there is only one proxy.
-# ("multi") -> Used with multi proxy instances.
+# ("redis") -> Used with multi proxy instances.
 #   > Uses redis as a queue
 #   > All instances must be linked to the same redis store
 provider: local
